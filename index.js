@@ -14,18 +14,15 @@ const app = express();
 // Configure cors (middleware)
 app.use(cors())
 
+// lectura y parseo del body
+app.use(express.json());
+
 // Base de datos
 dbConnection();
 
-
-
 // Rutas
-app.get('/', (req, res) => {
-    res.json({
-        ok: true,
-        msg: "Hola mundo"
-    })
-});
+app.use('/api/usuarios', require('./routes/usuarios.routes'));
+app.use('/api/login', require('./routes/auth.routes'));
 
 
 app.listen( process.env.PORT /**accesing the environment variables */, () => {
