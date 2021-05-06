@@ -19,7 +19,7 @@ const getUsuarios = async (req, res) => {
 const crearUsuario = async (req, res = response) => {
 
     // deconstruct the body
-    const { email, password, nombre } = req.body;
+    const { email, password } = req.body;
 
     try {
 
